@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @hiring_process %>
+
+<div>
+  <%= link_to "Edit this hiring process", edit_hiring_process_path(@hiring_process) %> |
+  <%= link_to "Back to hiring processes", hiring_processes_path %>
+
+  <%= button_to "Destroy this hiring process", @hiring_process, method: :delete %>
+</div>

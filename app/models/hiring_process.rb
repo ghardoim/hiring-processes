@@ -1,0 +1,2 @@
+class HiringProcess < ApplicationRecord
+end
