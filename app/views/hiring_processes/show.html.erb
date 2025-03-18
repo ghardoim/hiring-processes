@@ -1,10 +1,18 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @hiring_process %>
-
-<div>
-  <%= link_to "Edit this hiring process", edit_hiring_process_path(@hiring_process) %> |
-  <%= link_to "Back to hiring processes", hiring_processes_path %>
-
-  <%= button_to "Destroy this hiring process", @hiring_process, method: :delete %>
+<div class="container">
+  <table id="hiring_processes", class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">COMPANY</th>
+        <th scope="col">POSITION</th>
+        <th scope="col">RECRUITER</th>
+        <th scope="col">STATUS</th>
+        <th scope="col">DID THEY REACH ME?</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @hiring_process %>
+    </tbody>
+  </table>
 </div>
+<%= link_to "", hiring_processes_path, class:"bi bi-box-arrow-in-left btn btn-secondary btn-lg text-white" %>

@@ -1,27 +1,19 @@
-<div id="<%= dom_id hiring_process %>">
-  <p>
-    <strong>Company:</strong>
-    <%= hiring_process.company %>
-  </p>
+<tr id="<%= dom_id hiring_process %>", scope"row">
+  <td class=""><%= link_to hiring_process.company, hiring_process, class: "text-white", style: "text-decoration:none" %></td>
+  <td class=""><%= link_to hiring_process.position, hiring_process, class: "text-white", style: "text-decoration:none" %></td>
+  <td class=""><%= link_to hiring_process.recruiter, hiring_process, class: "text-white", style: "text-decoration:none" %></td>
+  <td class=""><%= link_to hiring_process.status, hiring_process, class: "text-white", style: "text-decoration:none" %></td>
+  
+  <td>
+    <% if hiring_process.reached_me == true %>
+      <i class="bi bi-check-circle-fill"></i>
+    <% end %>
+  </td>
 
-  <p>
-    <strong>Position:</strong>
-    <%= hiring_process.position %>
-  </p>
-
-  <p>
-    <strong>Recruiter:</strong>
-    <%= hiring_process.recruiter %>
-  </p>
-
-  <p>
-    <strong>Status:</strong>
-    <%= hiring_process.status %>
-  </p>
-
-  <p>
-    <strong>Reached me:</strong>
-    <%= hiring_process.reached_me %>
-  </p>
-
-</div>
+  <td class="d-flex">
+    <% if !request.path.include?("edit") %>
+      <%= link_to "", edit_hiring_process_path(hiring_process), class: "m-1 bi bi-pen btn btn-warning btn-sm text-white" %>
+    <% end %>
+    <%= button_to "", hiring_process, method: :delete, class: "m-1 bi bi-trash btn btn-danger btn-sm"%>
+  </td>
+</tr>

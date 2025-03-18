@@ -1,42 +1,28 @@
-<%= form_with(model: hiring_process) do |form| %>
+<%= form_with(model: hiring_process, class: "col-lg-4 offset-lg-4") do |form| %>
   <% if hiring_process.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(hiring_process.errors.count, "error") %> prohibited this hiring_process from being saved:</h2>
+    <div class="container col-8">
 
-      <ul>
+      <ul style="list-style-type:none">
         <% hiring_process.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <li class="alert alert-danger"><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :company, style: "display: block" %>
-    <%= form.text_field :company %>
+  <%= form.text_field :company, class:"mb-2 form-control", placeholder:"Company's Name"%>
+  <%= form.text_field :position, class:"mb-2 form-control", placeholder:"Position" %>
+  <%= form.text_field :recruiter, class:"mb-2 form-control", placeholder:"Recruiter's Name" %>
+  <%= form.textarea :status, class:"mb-2 form-control", placeholder:"Current Status" %>
+
+  <div class="d-flex">
+    <%= form.checkbox :reached_me, class:"form-check-input m-1" %>
+    <%= form.label :reached_me, class: "form-check-label" %>?
   </div>
 
-  <div>
-    <%= form.label :position, style: "display: block" %>
-    <%= form.text_field :position %>
-  </div>
+  <%= button_tag(:class => "btn btn-success") do %>
+    <i class="bi bi-check-circle"></i>
+  <% end %>
 
-  <div>
-    <%= form.label :recruiter, style: "display: block" %>
-    <%= form.text_field :recruiter %>
-  </div>
-
-  <div>
-    <%= form.label :status, style: "display: block" %>
-    <%= form.textarea :status %>
-  </div>
-
-  <div>
-    <%= form.label :reached_me, style: "display: block" %>
-    <%= form.checkbox :reached_me %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+  <%= link_to "", hiring_processes_path, class:"bi bi-box-arrow-in-left btn btn-secondary text-white" %>
 <% end %>

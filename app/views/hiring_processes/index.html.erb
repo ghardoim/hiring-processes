@@ -1,16 +1,22 @@
-<p style="color: green"><%= notice %></p>
-
-<% content_for :title, "Hiring processes" %>
-
-<h1>Hiring processes</h1>
-
-<div id="hiring_processes">
-  <% @hiring_processes.each do |hiring_process| %>
-    <%= render hiring_process %>
-    <p>
-      <%= link_to "Show this hiring process", hiring_process %>
-    </p>
-  <% end %>
+<div class="container">
+  <table id="hiring_processes", class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">COMPANY</th>
+        <th scope="col">POSITION</th>
+        <th scope="col">RECRUITER</th>
+        <th scope="col">STATUS</th>
+        <th scope="col">DID THEY REACH ME?</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @hiring_processes.each do |hiring_process| %>
+        <%= render hiring_process %>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="container d-flex justify-content-around col-3">
+    <%= link_to "", new_hiring_process_path, class:"bi bi-plus mb-3 btn btn-success btn-lg text-white" %>
+  </div>
 </div>
-
-<%= link_to "New hiring process", new_hiring_process_path %>
