@@ -25,7 +25,7 @@ class HiringProcessesController < ApplicationController
 
     respond_to do |format|
       if @hiring_process.save
-        format.html { redirect_to @hiring_process, notice: "Hiring process was successfully created." }
+        format.html { redirect_to hiring_processes_path, notice: "Hiring process was successfully created." }
         format.json { render :show, status: :created, location: @hiring_process }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class HiringProcessesController < ApplicationController
   def update
     respond_to do |format|
       if @hiring_process.update(hiring_process_params)
-        format.html { redirect_to @hiring_process, notice: "Hiring process was successfully updated." }
+        format.html { redirect_to hiring_processes_path, notice: "Hiring process was successfully updated." }
         format.json { render :show, status: :ok, location: @hiring_process }
       else
         format.html { render :edit, status: :unprocessable_entity }

@@ -9,6 +9,7 @@
       <i class="bi bi-check-circle-fill"></i>
     <% end %>
   </td>
+  <td class=""><%= link_to hiring_process.updated_at.to_fs(:short), hiring_process, class: "text-white", style: "text-decoration:none" %></td>
 
   <td class="d-flex">
     <% if !request.path.include?("edit") %>
